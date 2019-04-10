@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sign Up User</title>
+    <title>Next Sign Up User</title>
 	<!-- Bootstrap -->
     <link href="bootstrap.min.css" rel="stylesheet">
 	<style>
@@ -26,7 +26,7 @@
 		<?php
       if (!isset($_POST['submit'])) {
         $request = array(
-          'operation' => 'getDepartments',
+          'operation' => 'getYears',
         );
         $json = json_encode($request);
         $options = array(
@@ -39,7 +39,7 @@
         $url='http://localhost:8080/server/UserServlet';
         $context  = stream_context_create( $options );
         $result = file_get_contents( $url, false, $context );
-        $departments = json_decode( $result );
+        $years = json_decode( $result );
       }
 
 			if (isset($_POST['submit'])) {
@@ -47,10 +47,11 @@
 			$request = array(
 						'operation' => 'ADD',
 						'payload' => array(
-						'Firstname' => $_POST['first_name'],
-						'Lastname' => $_POST['last_name'],
-						'Id' => $_POST['reg_id']
-						'Department' => $_POST['department'],
+						'Year' => $_POST['year'],
+						'Section' => $_POST['section'],
+						'Phone' => $_POST['phone'],
+            'Email' => $_POST['email'],
+            'Password' => $_POST['password'],
 						)
 			);
 			$json = json_encode($request);
@@ -76,24 +77,25 @@
 		<div class="row">
 			<div class="col-md-6" style = "margin-top:0px;">
 				<div class="panel panel-default">
-					  <h2 style = "margin-left:20px;">Sign Up Page</h2>
+					  <h2 style = "margin-left:20px;">Continue Sign Up Page</h2>
 					<div class="panel-body">
 						<form method="post" action="index.php" class="form-horizontal" role="form">
-								<input class="form-control" name="first_name" type="text" placeholder="First Name" required>
-                <input class="form-control" name="last_name" type="text" placeholder="Last Name" required>
-                <input class="form-control" name="reg_id" type="text" placeholder="Student Registration ID" required>
-                <select name="department" class="form-control my-3 push-corners" required>
-                  <option value="" disabled selected>Pick your Department</option>
+                <select name="year" class="form-control my-3 push-corners" required>
+                  <option value="" disabled selected>Pick your year</option>
                   <?php
-                    if (!empty($departments)) {
-                        foreach ($departments as $dep ) {
-                            echo '<option value="' . $dep['id'] . '">' . $dep['name'] . '</option>';
+                    if (!empty($years)) {
+                        foreach ($years as $year ) {
+                            echo '<option value="' . $year['id'] . '">' . $year['name'] . '</option>';
                         }
                     }
                   ?>
                 </select>
+                <input class="form-control" name="section" type="number" placeholder="Section Number" required>
+								<input class="form-control" name="phone" type="text" placeholder="Phone Number" required>
+                <input class="form-control" name="email" type="email" placeholder="Email" required>
+                <input class="form-control" name="password" type="password" placeholder="Password" required>
 
-                <button class="btn" type="submit">Sign up</button>
+                <button class="btn" type="submit">Complete Sign up</button>
 						</form>
 					</div>
 				</div>
