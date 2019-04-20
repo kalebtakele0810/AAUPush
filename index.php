@@ -47,10 +47,10 @@
 			$request = array(
 						'operation' => 'ADD',
 						'payload' => array(
-						'Firstname' => $_POST['first_name'],
-						'Lastname' => $_POST['last_name'],
-						'Id' => $_POST['reg_id']
-						'Department' => $_POST['department'],
+								'Firstname' => $_POST['first_name'],
+								'Lastname' => $_POST['last_name'],
+								'Id' => $_POST['reg_id'],
+								'Department' => $_POST['department']
 						)
 			);
 			$json = json_encode($request);
@@ -100,6 +100,12 @@
 			</div>
 		</div>
 	</div>
+</div>
+<div>
+	<a href='index.php'>Index</a>
+	<a href='index2.php'>Index2</a>
+	<a href='sendpost.php'>Send Post</a>
+	<a href='viewpost.php'>View Post</a>
 </div>
 </body>
 </html>
