@@ -24,10 +24,9 @@
 	<div class="container-fluid">
 
 		<?php
-
             if (!isset($_POST['submit'])) {
                 $request = array(
-                'operation' => 'getPosts',
+                'operation' => 'getMyClasses',
                 );
                 $json = json_encode($request);
                 $options = array(
@@ -37,11 +36,35 @@
                     'header'=> "Accept: application/json\r\n"
                     )
                 );
-                $url='http://localhost:8080/server/PostServlet';
+                $url='http://localhost:8080/server/ClassServlet';
                 $context  = stream_context_create( $options );
                 $result = file_get_contents( $url, false, $context );
-                $posts = json_decode( $result );
+                $myclasses = json_decode( $result );
             }
+
+			if (isset($_POST['submit'])) {
+
+			$request = array(
+						'operation' => 'ADD',
+						'payload' => array(
+								'course' => $_POST['course'],
+						)
+			);
+			$json = json_encode($request);
+			$options = array(
+				'http' => array(
+					'method'  => 'POST',
+					'content' => $json ,
+					'header'=>  "Content-Type: application/json\r\n" .
+											"Accept: application/json\r\n"
+					)
+			);
+			$url='http://localhost:8080/server/ClassServlet';
+			$context  = stream_context_create( $options );
+			$result = file_get_contents( $url, false, $context );
+			$response = json_decode( $result );
+			echo $response->status;
+			}	
 	?>	
 
 
@@ -49,16 +72,13 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6" style = "margin-top:0px;">
-                <div class="panel panel-default">
-					  <h2 style = "margin-left:20px;">View Post</h2>
+				<div class="panel panel-default">
+					  <h2 style = "margin-left:20px;">Drop Class Page</h2>
 					<div class="panel-body">
-                             <?php
-                                    if (!empty($posts)) {
-                                        foreach ($posts as $post ) {
-                                            echo '<p>' . $post['content'] . '</p>';
-                                        }
-                                    }
-                                ?>
+						<form method="post" action="index.php" class="form-horizontal" role="form">
+								<input class="form-control" name="course" type="text" placeholder="Name of the course" required>
+                                <button class="btn" type="submit">Send</button>
+						</form>
 					</div>
 				</div>
 			</div>

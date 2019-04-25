@@ -176,9 +176,13 @@
 	</div>
 </div>
 <div>
+<p>Links</p>
 	<a href='index.php'>Index</a>
 	<a href='index2.php'>Index2</a>
-	<a href='post.php'>Post</a>
+	<a href='sendpost.php'>Send Post</a>
+	<a href='viewpost.php'>View Post</a>
+	<a href='addclass.php'>Add Class</a>
+	<a href='dropclass.php'>Drop Class</a>
 </div>
 </body>
 </html>
