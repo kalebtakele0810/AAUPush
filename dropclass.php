@@ -45,10 +45,14 @@
 			if (isset($_POST['submit'])) {
 
 			$request = array(
-						'operation' => 'ADD',
+						'operation' => 'DEL',
 						'payload' => array(
-								'course' => $_POST['course'],
-						)
+							'name' => $_POST['name'],
+							'ects' => $_POST['ects'],
+							'courseCode' => $_POST['courseCode'],
+							'creditHour' => $_POST['creditHour'],
+							'id' => $_POST['id'],
+					)
 			);
 			$json = json_encode($request);
 			$options = array(
@@ -74,9 +78,13 @@
 			<div class="col-md-6" style = "margin-top:0px;">
 				<div class="panel panel-default">
 					  <h2 style = "margin-left:20px;">Drop Class Page</h2>
-					<div class="panel-body">
+					  <div class="panel-body">
 						<form method="post" action="index.php" class="form-horizontal" role="form">
-								<input class="form-control" name="course" type="text" placeholder="Name of the course" required>
+								<input class="form-control" name="name" type="text" placeholder="Name of the course" required>
+								<input class="form-control" name="ects" type="text" placeholder="ECTS of the course" required>
+								<input class="form-control" name="creditHour" type="text" placeholder="Credit hour of the course" required>
+								<input class="form-control" name="id" type="text" placeholder="ID of the course" required>
+								<input class="form-control" name="courseCode" type="text" placeholder="Course Code of the course" required>
                                 <button class="btn" type="submit">Send</button>
 						</form>
 					</div>

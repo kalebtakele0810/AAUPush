@@ -47,9 +47,11 @@
 			$request = array(
 						'operation' => 'ADD',
 						'payload' => array(
-								'year' => $_POST['year'],
-								'section' => $_POST['section'],
-								'course' => $_POST['course'],
+								'name' => $_POST['name'],
+								'ects' => $_POST['ects'],
+								'courseCode' => $_POST['courseCode'],
+								'creditHour' => $_POST['creditHour'],
+								'id' => $_POST['id'],
 						)
 			);
 			$json = json_encode($request);
@@ -78,9 +80,11 @@
 					  <h2 style = "margin-left:20px;">Add Class Page</h2>
 					<div class="panel-body">
 						<form method="post" action="index.php" class="form-horizontal" role="form">
-                                <input class="form-control" name="year" type="number" placeholder="Which year are you adding from?" required>
-                                <input class="form-control" name="section" type="number" placeholder="Which section are you adding from?" required>
-								<input class="form-control" name="course" type="text" placeholder="Name of the course" required>
+								<input class="form-control" name="name" type="text" placeholder="Name of the course" required>
+								<input class="form-control" name="ects" type="text" placeholder="ECTS of the course" required>
+								<input class="form-control" name="creditHour" type="text" placeholder="Credit hour of the course" required>
+								<input class="form-control" name="id" type="text" placeholder="ID of the course" required>
+								<input class="form-control" name="courseCode" type="text" placeholder="Course Code of the course" required>
                                 <button class="btn" type="submit">Send</button>
 						</form>
 					</div>
