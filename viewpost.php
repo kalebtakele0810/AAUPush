@@ -37,38 +37,11 @@
                     'header'=> "Accept: application/json\r\n"
                     )
                 );
-                $url='http://localhost:8080/server/UserServlet';
+                $url='http://localhost:8080/server/PostServlet';
                 $context  = stream_context_create( $options );
                 $result = file_get_contents( $url, false, $context );
                 $posts = json_decode( $result );
             }
-
-			if (isset($_POST['submit'])) {
-
-			$request = array(
-						'operation' => 'ADD',
-						'payload' => array(
-								'Firstname' => $_POST['first_name'],
-								'Lastname' => $_POST['last_name'],
-								'Id' => $_POST['reg_id'],
-								'Department' => $_POST['department']
-						)
-			);
-			$json = json_encode($request);
-			$options = array(
-				'http' => array(
-					'method'  => 'POST',
-					'content' => $json ,
-					'header'=>  "Content-Type: application/json\r\n" .
-											"Accept: application/json\r\n"
-					)
-			);
-			$url='http://localhost:8080/server/UserServlet';
-			$context  = stream_context_create( $options );
-			$result = file_get_contents( $url, false, $context );
-			$response = json_decode( $result );
-			echo $response->status;
-			}	
 	?>	
 
 

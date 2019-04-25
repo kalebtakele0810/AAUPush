@@ -64,13 +64,10 @@
 			$request = array(
 						'operation' => 'ADD',
 						'payload' => array(
-								'postcontent' => $_POST['first_name'],
-								'file1' => $_POST['file1'],
-								'file2' => $_POST['file2'],
-								'file3' => $_POST['file3'],
-								'image1' => $_POST['image1'],
-								'image2' => $_POST['image2'],
-								'section' => $_POST['section']
+								'content' => $_POST['content'],
+								'id' => $_POST['id'],
+								'type' => $_POST['type'],
+								'pubDate' => $_POST['pubDate'],
 						)
 			);
 			$json = json_encode($request);
@@ -93,14 +90,11 @@
 				$request = array(
 							'operation' => 'ADD',
 							'payload' => array(
-									'postcontent' => $_POST['first_name'],
-									'file1' => $_POST['file1'],
-									'file2' => $_POST['file2'],
-									'file3' => $_POST['file3'],
-									'image1' => $_POST['image1'],
-									'image2' => $_POST['image2'],
-									'section' => $_POST['section']
-							)
+								'content' => $_POST['content'],
+								'id' => $_POST['id'],
+								'type' => $_POST['type'],
+								'pubDate' => $_POST['pubDate'],
+						)
 				);
 				$json = json_encode($request);
 				$options = array(
@@ -122,7 +116,7 @@
 				$request = array(
 							'operation' => 'ADD',
 							'payload' => array(
-									'post_id' => $_POST['post_id'],
+									'id' => $_POST['post_id'],
 							)
 				);
 				$json = json_encode($request);
@@ -151,24 +145,10 @@
 					  <h2 style = "margin-left:20px;">Post Page</h2>
 					<div class="panel-body">
 						<form method="post" action="index.php" class="form-horizontal" role="form">
-                                <input class="form-control" name="postcontent" type="text" placeholder="Write your post" required>
-                                Attach Files
-                                <input class="form-control" name="file1" type="file" >
-                                <input class="form-control" name="file2" type="file" >
-                                <input class="form-control" name="file3" type="file" >
-                                Attache Images
-                                <input class="form-control" name="image1" type="file">
-                                <input class="form-control" name="image2" type="file">
-                                <select name="section" class="form-control my-3 push-corners" required>
-                                <option value="" disabled selected>Pick section to send</option>
-                                    <?php
-                                        if (!empty($years)) {
-                                            foreach ($years as $year ) {
-                                                echo '<option value="' . $year['id'] . '">' . $year['name'] . '</option>';
-                                            }
-                                        }
-                                    ?>
-                                </select>
+                                <input class="form-control" name="content" type="text" placeholder="Write your post" required>
+                                <input class="form-control" name="id" type="number" placeholder="Id of Post" required>
+								<input class="form-control" name="type" type="text" placeholder="type of Post" required>
+								<input class="form-control" name="pubDate" type="text" placeholder="Publication date of Post" required>
                                 <button class="btn" type="submit">Send</button>
 						</form>
 					</div>
