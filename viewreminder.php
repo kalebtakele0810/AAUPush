@@ -24,9 +24,10 @@
 	<div class="container-fluid">
 
 		<?php
+
             if (!isset($_POST['submit'])) {
                 $request = array(
-                'operation' => 'getYears',
+                'operation' => 'getReminders',
                 );
                 $json = json_encode($request);
                 $options = array(
@@ -36,39 +37,11 @@
                     'header'=> "Accept: application/json\r\n"
                     )
                 );
-                $url='http://localhost:8080/server/ClassServlet';
+                $url='http://localhost:8080/server/ReminderServlet';
                 $context  = stream_context_create( $options );
                 $result = file_get_contents( $url, false, $context );
-                $years = json_decode( $result );
+                $reminders = json_decode( $result );
             }
-
-			if (isset($_POST['submit'])) {
-
-			$request = array(
-						'operation' => 'ADD',
-						'payload' => array(
-								'name' => $_POST['name'],
-								'ects' => $_POST['ects'],
-								'courseCode' => $_POST['courseCode'],
-								'creditHour' => $_POST['creditHour'],
-								'id' => $_POST['id'],
-						)
-			);
-			$json = json_encode($request);
-			$options = array(
-				'http' => array(
-					'method'  => 'POST',
-					'content' => $json ,
-					'header'=>  "Content-Type: application/json\r\n" .
-											"Accept: application/json\r\n"
-					)
-			);
-			$url='http://localhost:8080/server/ClassServlet';
-			$context  = stream_context_create( $options );
-			$result = file_get_contents( $url, false, $context );
-			$response = json_decode( $result );
-			echo $response->status;
-			}	
 	?>	
 
 
@@ -76,17 +49,18 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6" style = "margin-top:0px;">
-				<div class="panel panel-default">
-					  <h2 style = "margin-left:20px;">Add Class Page</h2>
+                <div class="panel panel-default">
+					  <h2 style = "margin-left:20px;">View Reminder</h2>
 					<div class="panel-body">
-						<form method="post" action="index.php" class="form-horizontal" role="form">
-								<input class="form-control" name="name" type="text" placeholder="Name of the course" required>
-								<input class="form-control" name="ects" type="text" placeholder="ECTS of the course" required>
-								<input class="form-control" name="creditHour" type="text" placeholder="Credit hour of the course" required>
-								<input class="form-control" name="id" type="text" placeholder="ID of the course" required>
-								<input class="form-control" name="courseCode" type="text" placeholder="Course Code of the course" required>
-                                <button class="btn" type="submit">Send</button>
-						</form>
+                             <?php
+                                    if (!empty($reminders)) {
+                                        foreach ($reminders as $reminder ) {
+                                            echo '<p>' . $reminder['title'] . '</p>';
+                                            echo '<p>' . $reminder['dueDate'] . '</p>';
+                                            echo '<p>' . $reminder['place'] . '</p>';
+                                        }
+                                    }
+                                ?>
 					</div>
 				</div>
 			</div>

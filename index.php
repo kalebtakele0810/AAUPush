@@ -110,5 +110,28 @@
 	<a href='addclass.php'>Add Class</a>
 	<a href='dropclass.php'>Drop Class</a>
 </div>
+<hr>
+<div>
+<p>Forum Links</p>
+<a href='createforum.php'>Create</a>
+<a href='destroyforum.php'>Destroy</a>
+<a href='openforum.php'>Open</a>
+<a href='joinforum.php'>Join</a>
+<a href='searchforum.php'>Search</a>
+</div>
+<hr>
+<div>
+<p>Reminder Links</p>
+<a href='setreminder.php'>Set Reminder</a>
+<a href='viewreminder.php'>View Reminder</a>
+<a href='deletereminder.php'>Delete Reminder</a>
+</div>
+<hr>
+<div>
+<p>Admin Links</p>
+<a href='inviteinstructor.php'>Invite instructor</a>
+<a href='forgotpassword.php'>Forgot Password</a>
+<a href='updateaccount.php'>Update Account Info</a>
+</div>
 </body>
 </html>
