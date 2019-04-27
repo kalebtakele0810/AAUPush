@@ -67,7 +67,7 @@
 								'content' => $_POST['content'],
 								'id' => $_POST['id'],
 								'type' => $_POST['type'],
-								'pubDate' => $_POST['pubDate'],
+								'pubdate' => $_POST['pubdate'],
 						)
 			);
 			$json = json_encode($request);
@@ -93,7 +93,7 @@
 								'content' => $_POST['content'],
 								'id' => $_POST['id'],
 								'type' => $_POST['type'],
-								'pubDate' => $_POST['pubDate'],
+								'pubdate' => $_POST['pubdate'],
 						)
 				);
 				$json = json_encode($request);
@@ -148,7 +148,7 @@
                                 <input class="form-control" name="content" type="text" placeholder="Write your post" required>
                                 <input class="form-control" name="id" type="number" placeholder="Id of Post" required>
 								<input class="form-control" name="type" type="text" placeholder="type of Post" required>
-								<input class="form-control" name="pubDate" type="text" placeholder="Publication date of Post" required>
+								<input class="form-control" name="pubdate" type="text" placeholder="Publication date of Post" required>
                                 <button class="btn" type="submit">Send</button>
 						</form>
 					</div>

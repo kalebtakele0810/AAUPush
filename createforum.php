@@ -30,11 +30,11 @@
 						'operation' => 'ADD',
 						'payload' => array(
 								'id' => $_POST['id'],
-								'forumId' => $_POST['forumId'],
+								'forumid' => $_POST['forumid'],
 								'description' => $_POST['description'],
 								'privacy' => $_POST['privacy'],
                                 'name' => $_POST['name'],
-                                'joinCode' => $_POST['joinCode'],
+                                'joincode' => $_POST['joincode'],
 						)
 			);
 			$json = json_encode($request);
@@ -64,10 +64,10 @@
 					<div class="panel-body">
 						<form method="post" action="index.php" class="form-horizontal" role="form">
 								<input class="form-control" name="id" type="number" placeholder="Id of the forum" required>
-								<input class="form-control" name="forumId" type="text" placeholder="Forum Id of the forum" required>
+								<input class="form-control" name="forumid" type="text" placeholder="Forum Id of the forum" required>
 								<input class="form-control" name="description" type="text" placeholder="Description of the forum" required>
 								<input class="form-control" name="privacy" type="number" placeholder="Privacy of the forum" required>
-								<input class="form-control" name="joinCode" type="text" placeholder="join Code of the forum" required>
+								<input class="form-control" name="joincode" type="text" placeholder="join Code of the forum" required>
                                 <button class="btn" type="submit">Send</button>
 						</form>
 					</div>

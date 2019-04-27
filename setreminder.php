@@ -30,7 +30,7 @@
 						'operation' => 'ADD',
 						'payload' => array(
 								'title' => $_POST['title'],
-								'dueDate' => $_POST['dueDate'],
+								'duedate' => $_POST['duedate'],
 								'place' => $_POST['place'],
 						)
 			);
@@ -61,7 +61,7 @@
 					<div class="panel-body">
 						<form method="post" action="index.php" class="form-horizontal" role="form">
 								<input class="form-control" name="title" type="text" placeholder="Title of the reminder" required>
-								<input class="form-control" name="dueDate" type="date" placeholder="Date  of the reminder" required>
+								<input class="form-control" name="duedate" type="date" placeholder="Date  of the reminder" required>
 								<input class="form-control" name="place" type="text" placeholder="place of the reminder" required>
                                 <button class="btn" type="submit">Set Reminder</button>
 						</form>

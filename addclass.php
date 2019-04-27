@@ -49,8 +49,8 @@
 						'payload' => array(
 								'name' => $_POST['name'],
 								'ects' => $_POST['ects'],
-								'courseCode' => $_POST['courseCode'],
-								'creditHour' => $_POST['creditHour'],
+								'coursecode' => $_POST['coursecode'],
+								'credithour' => $_POST['credithour'],
 								'id' => $_POST['id'],
 						)
 			);
@@ -82,9 +82,9 @@
 						<form method="post" action="index.php" class="form-horizontal" role="form">
 								<input class="form-control" name="name" type="text" placeholder="Name of the course" required>
 								<input class="form-control" name="ects" type="text" placeholder="ECTS of the course" required>
-								<input class="form-control" name="creditHour" type="text" placeholder="Credit hour of the course" required>
+								<input class="form-control" name="credithour" type="text" placeholder="Credit hour of the course" required>
 								<input class="form-control" name="id" type="text" placeholder="ID of the course" required>
-								<input class="form-control" name="courseCode" type="text" placeholder="Course Code of the course" required>
+								<input class="form-control" name="coursecode" type="text" placeholder="Course Code of the course" required>
                                 <button class="btn" type="submit">Send</button>
 						</form>
 					</div>

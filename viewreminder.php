@@ -56,7 +56,7 @@
                                     if (!empty($reminders)) {
                                         foreach ($reminders as $reminder ) {
                                             echo '<p>' . $reminder['title'] . '</p>';
-                                            echo '<p>' . $reminder['dueDate'] . '</p>';
+                                            echo '<p>' . $reminder['duedate'] . '</p>';
                                             echo '<p>' . $reminder['place'] . '</p>';
                                         }
                                     }
